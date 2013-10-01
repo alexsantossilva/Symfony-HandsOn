@@ -1,0 +1,21 @@
+{% extends 'MerciCatalogBundle::layout.html.twig' %}
+
+{% block title %}
+    Produto{{ parent() }}
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="media col-md-9">
+          <h2>{{ product.name }}</h2>
+          <div class="pull-left thumbnail">
+            <img class="media-object" src="{{ asset(product.imagePath) }}" alt="{{ product.name }}">
+          </div>
+          <div class="media-body">
+            {{ product.description }}
+          </div>
+          <h2>R$ {{ product.price }}</h2>
+          <button type="button" class="btn btn-success btn-lg">Colocar no Carrinho</button>
+        </div>
+    </div>
+{% endblock %}
