@@ -26,8 +26,6 @@ class CheckoutController extends Controller
         }
 
         $user = $this->get('security.context')->getToken()->getUser();
-        $session = $this->getRequest()->getSession();
-        $cart = $session->get('cart');
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Merci Commerce: Pedido realizado com sucesso!')

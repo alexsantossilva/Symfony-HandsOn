@@ -151,4 +151,9 @@ class Product
     {
         return $this->imageName;
     }
+
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 }

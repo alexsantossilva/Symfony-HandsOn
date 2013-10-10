@@ -72,4 +72,28 @@ class UserController extends Controller
             array('form' => $form->createView())
         );
     }
+
+    public function accountAction()
+    {
+        $request = $this->getRequest();
+
+        $user = $this->get('security.context')->getToken()->getUser();
+        $form = $this->createForm(new UserType(), $user);
+
+        $form->handleRequest($request);
+
+        if ($form->isValid()) {
+            $factory = $this->get('security.encoder_factory');
+            $encoder = $factory->getEncoder($user);
+            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
+            $user->setPassword($password);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($user);
+            $em->flush();
+        }
+
+        return $this->render('MerciUserBundle:Default:account.html.twig',
+            array('form' => $form->createView())
+        );
+    }
 }

@@ -20,7 +20,7 @@
               <li><a href="{{ path('homepage') }}">Catalogo</a></li>
               {% if is_granted('ROLE_USER') %}
                 <li>
-                  <a href="#">Bem-Vindo: {{ app.user.username }}</a>
+                  <a href="{{ path('account') }}">Bem-Vindo: {{ app.user.username }}</a>
                 </li>
                 <li>
                   <a href="{{ path('logout') }}">Logout</a>

@@ -1,0 +1,14 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}
+    Minha Conta{{ parent() }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Minha Conta</h1>
+
+    {{ form(form) }}
+
+</div>
+{% endblock %}
