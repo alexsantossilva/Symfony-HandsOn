@@ -8,7 +8,20 @@
 <div class="container">
     <h1>Minha Conta</h1>
 
-    {{ form(form) }}
+    <div class="panel panel-default">
+        <div class="panel-body">
+
+            {{ form_start(form) }}
+                {{ form_errors(form) }}
+
+                {{ form_row(form.name) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.address) }}
+                {{ form_row(form.save) }}
+            {{ form_end(form) }}
+
+        </div>
+    </div>
 
 </div>
 {% endblock %}
